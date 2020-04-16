@@ -3,7 +3,9 @@ import { View, Text, StyleSheet, Button, Image } from 'react-native';
 
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
+// import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+import Colors from '../constants/Colors';
 const GameOverScreen = props => {
     return (
         <View style={styles.screen}>
@@ -12,13 +14,12 @@ const GameOverScreen = props => {
                 <Image style={styles.image}
                     fadeDuration={1000}
                     resizeMode='cover'
-                    // source={require('../assets/example-image.png')} 
-                    source={{uri: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'}}
+                    source={require('../assets/example-image.png')} 
+                    // source={{uri: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'}}
                     />
             </View>
 
-            <BodyText>The Number was: {props.userChoice}</BodyText>
-            <BodyText>Number of rounds is: {props.roundsNumber}</BodyText>
+            <BodyText>Your phone needed <Text>{props.roundsNumber}</Text> to guess the number: <Text style={styles.highLight}>{props.userChoice}</Text></BodyText>
             <Button title='Restart Game!' onPress={props.onRestart} />
         </View>
     )
@@ -41,6 +42,9 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: '100%'
+    },
+    highLight: {
+        color: Colors.primary
     }
 })
 
