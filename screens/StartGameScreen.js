@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { View, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert, Dimensions } from 'react-native';
 
 import Card from '../components/Card';
 import Colors from '../constants/Colors';
@@ -89,8 +89,9 @@ const styles = StyleSheet.create({
         fontFamily: 'open-sans-bold'
     },
     inputContainer: {
-        width: 300,
-        maxWidth: '80%'
+        width: '80%',
+        maxWidth: '95%',
+        minWidth: 300,
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -101,7 +102,8 @@ const styles = StyleSheet.create({
     },
     button: {
         flex: 1,
-        padding: 10
+        padding: 10,
+        width: Dimensions.get('window').width /2
     },
     input: {
         width: 50,
